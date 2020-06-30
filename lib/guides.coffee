@@ -14,7 +14,10 @@ toG = (indents, begin, depth, cursorRows) ->
       Array.prototype.push.apply(gs, r.guides)
       ptr = r.ptr
     else
-      if ptr in cursorRows
+      curr = ptr
+      next = ptr + 1
+      prev = ptr - 1
+      if curr in cursorRows || next in cursorRows || prev in cursorRows
         isActive = true
         isStack = true
       ptr++
